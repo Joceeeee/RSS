@@ -42,15 +42,21 @@ function addRSStoDOM(data) {
     content.appendChild(titleElement);
     content.appendChild(itemsContainer);
   }
-  
+
+  var content = document.getElementsByTagName('main')[0]
+
   var xhr = new XMLHttpRequest();
-  xhr.onload = function() {
+  
+  xhr.onload = function(){
     if (xhr.status >=200 && xhr.status < 300) {
-        console.log("Sucess!")
-    } else {
-        console.log("The request failed")
+      json = JSON.parse(xhr.responseText)
+      console.log(json)
+      addRSStoDOM(json)
+    } else{
+      console.log("The request failed")
+      content.innerHTML = "The request failed, please check your RSS URL."
     }
-}
+  }
   
   // Find the elements in
   // the HTML, then write a function to handle the element/event, then add
