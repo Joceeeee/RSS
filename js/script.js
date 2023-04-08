@@ -25,6 +25,8 @@ function addRSStoDOM(data) {
   var xhr = new XMLHttpRequest();
   
   xhr.onload = function(){
+    /* added clear function to remove else message when success */
+    /* ref: https://stackoverflow.com/questions/22593759/how-do-i-clear-inner-html */
     content.innerHTML = "";
     if (xhr.status >=200 && xhr.status < 300) {
       json = JSON.parse(xhr.responseText);
