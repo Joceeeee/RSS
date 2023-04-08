@@ -25,6 +25,7 @@ function addRSStoDOM(data) {
   var xhr = new XMLHttpRequest();
   
   xhr.onload = function(){
+    content.innerHTML = "";
     if (xhr.status >=200 && xhr.status < 300) {
       json = JSON.parse(xhr.responseText);
       console.log(json);
@@ -32,7 +33,6 @@ function addRSStoDOM(data) {
     } else{
       console.log("The request failed");
       content.innerHTML = "The request failed, please check your RSS URL.";
-      content.innerHTML = "";
     }
   }
   
