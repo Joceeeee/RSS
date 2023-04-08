@@ -55,6 +55,7 @@ function addRSStoDOM(data) {
     } else{
       console.log("The request failed")
       content.innerHTML = "The request failed, please check your RSS URL."
+      console.clear();
     }
   }
   
